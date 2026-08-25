@@ -6,7 +6,7 @@
 local terminal    = "alacritty"
 local fileManager = "nautilus"
 local menu        = "rofi -show drun"
-
+local browser     = "zen-browser"
 
 ---------------------
 ---- KEYBINDINGS ----
@@ -20,7 +20,8 @@ hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("/home/omar/.config/rofi/scripts/emoji.sh"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("rofi -show clipboard"))
 hl.bind(mainMod .. " + W", hl.dsp.window.close())
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
