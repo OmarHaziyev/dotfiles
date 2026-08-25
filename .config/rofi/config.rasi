@@ -1,0 +1,11 @@
+configuration {
+    modi:                       "drun,clipboard:~/.config/rofi/scripts/clipboard.sh";
+    show-icons:                 true;
+    display-drun:               "Apps";
+    display-clipboard:          "Clipboard";
+    drun-display-format:        "{icon} {name}";
+    disable-history:            false;
+    sidebar-mode:                false;
+}
+
+@theme "theme"

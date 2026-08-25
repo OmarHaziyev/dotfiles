@@ -1,0 +1,48 @@
+@import url("colors.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 700;
+    background-image: none;
+}
+
+window {
+    background-color: alpha(@base, 0.35);
+}
+
+button {
+    color: @text;
+    background-color: alpha(@surface0, 0.9);
+    border: 1px solid alpha(@overlay, 0.5);
+    border-radius: 999px;
+
+    margin: 85px 15px;
+    padding: 15px 30px;
+    min-width: 150px;
+
+    font-size: 29px;
+
+    transition: all 0.15s ease-in-out;
+}
+
+/* Top row: keep the big margin on top (for the centering fix), shrink the bottom */
+#lock, #shutdown, #reboot {
+    margin-top: 160px;
+    margin-bottom: 20px;
+}
+
+/* Bottom row: mirror it — small margin on top, big margin on bottom */
+#logout, #suspend, #hibernate {
+    margin-top: 20px;
+    margin-bottom: 160px;
+}
+
+button:hover,
+button:focus {
+    background-color: @accent;
+    color: @base;
+}
+
+button label {
+    margin-top: -6px;
+}

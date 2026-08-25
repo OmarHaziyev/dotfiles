@@ -1,0 +1,125 @@
+@import url("colors.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: alpha(@base, 0.92);
+    border: 1px solid alpha(@overlay, 0.6);
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: @text;
+    padding: 2px 4px;
+}
+
+#custom-swaync,
+#workspaces,
+#custom-media,
+#clock,
+#network,
+#battery,
+#custom-bluetooth,
+#pulseaudio,
+#custom-power {
+    background-color: alpha(@base, 0.55);
+    border: 1px solid alpha(@overlay, 0.35);
+    border-radius: 999px;
+    margin: 0 4px;
+}
+
+
+#workspaces {
+    padding: 3px 6px;
+}
+
+#workspaces button {
+    min-width: 34px;
+    min-height: 24px;
+    margin: 0 2px;
+    padding: 0;
+    background: transparent;
+    color: @subtext;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#workspaces button.active {
+    background-color: @accent;
+    color: @base;
+}
+
+#workspaces button:hover {
+    background-color: alpha(@accent2, 0.35);
+    color: @text;
+}
+
+#custom-media {
+    padding: 0 16px;
+    color: @subtext;
+}
+
+#custom-media.playing { color: @green; }
+#custom-media.paused { color: @subtext; }
+#custom-media.stopped { color: @muted; padding: 0 14px; }
+
+#clock {
+    padding: 0 22px;
+    color: @accent;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+#network,
+#battery,
+#custom-bluetooth,
+#pulseaudio {
+    min-width: 34px;
+    padding: 0 14px;
+    color: @subtext;
+}
+
+#network.disconnected { color: @muted; }
+#battery.warning { color: @yellow; }
+#battery.critical { color: @red; }
+#custom-bluetooth.connected { color: @accent; }
+#custom-bluetooth.on { color: @subtext; }
+#custom-bluetooth.disabled { color: @muted; }
+#pulseaudio.muted { color: @muted; }
+
+#custom-power {
+    min-width: 34px;
+    min-height: 34px;
+    padding-left: 24;
+    margin-right: 0;
+    color: @red;
+    font-size: 14px;
+}
+
+#custom-power:hover {
+    background-color: alpha(@red, 0.18);
+}
+
+#custom-swaync {
+    min-width: 34px;
+    min-height: 34px;
+    padding-left: 22;
+    font-size: 14px;
+    color: @subtext;
+}
+
+#custom-swaync:hover {
+    background-color: alpha(@surface1, 0.7);
+}
