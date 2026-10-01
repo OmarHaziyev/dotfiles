@@ -1,0 +1,306 @@
+/* Palette comes from ~/.config/theme/colors.css, symlinked in as
+ * colors.css (same pattern Waybar and wlogout use) — matugen regenerates
+ * that one file and everything downstream just re-reads it. */
+@import url("colors.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+    color: @text;
+}
+
+/* ---------- Floating panel shell ---------- */
+
+.control-center {
+    background-color: alpha(@base, 0.85);
+    border: 1px solid alpha(@overlay, 0.5);
+    border-radius: 20px;
+    padding: 16px;
+}
+
+.control-center-list {
+    background: transparent;
+    min-height: 0;
+    valign: start;
+}
+
+/* GTK wraps every widget in the widgets:[] array in an anonymous
+ * GtkListBoxRow. That row is a separate element from .widget-mpris /
+ * .widget-dnd / etc, has its own default padding + fills available
+ * width/height, and is what was showing up as the "outer rectangle"
+ * around the mpris card. Strip it down so it hugs its child. */
+.control-center-list row {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    min-height: 0;
+}
+
+.control-center-list-placeholder {
+    color: @subtext;
+}
+
+.control-center-list-placeholder image {
+    color: @muted;
+    -gtk-icon-size: 64px;
+}
+
+.floating-notifications {
+    background: transparent;
+}
+
+.notification-group {
+    background: transparent;
+    valign: start;
+}
+
+.notification-row {
+    margin: 4px 0;
+    background: transparent;
+    valign: start;
+}
+
+.notification {
+    background-color: alpha(@surface0, 0.9);
+    border-radius: 16px;
+    padding: 10px;
+    margin: 4px 0;
+    valign: start;
+}
+
+.notification-content {
+    color: @text;
+}
+
+.close-button {
+    background-color: alpha(@surface1, 0.9);
+    color: @text;
+    border-radius: 999px;
+    padding: 4px;
+}
+
+.close-button:hover {
+    background-color: @accent;
+    color: @base;
+}
+
+/* ---------- Mpris (Spotify) card ---------- */
+
+.widget-mpris {
+    background-color: alpha(@surface0, 0.95);
+    border: 1px solid alpha(@overlay, 0.4);
+    border-radius: 18px;
+    padding: 0px;
+    margin: 4px 0 14px 0;
+    valign: start;
+}
+
+.widget-mpris .widget-mpris-player {
+    background: transparent;
+    valign: start;
+    halign: fill;
+    padding: 0px;
+    margin: 0;
+}
+
+/* Album art: fixed square, own rounded corner, subtle border so it reads
+ * as a deliberate card even before/if the actual artwork loads. If the
+ * TLS/networking fix is in place this just frames the real cover. */
+.widget-mpris-album-art {
+    min-width: 90px;
+    min-height: 90px;
+    padding: 0;
+    margin: 0;
+    border-radius: 12px;
+    border: 1px solid alpha(@overlay, 0.5);
+    background-color: @surface1;
+    background-size: cover;
+    background-position: center;
+    -gtk-icon-source: -gtk-icontheme("multimedia-player");
+    -gtk-icon-size: 28px;
+    color: @muted;
+}
+
+/* ... title/subtitle/buttons unchanged ... */
+
+/* Track/position seek bar (from show-tracks: true) — this had zero
+ * styling before, rendering as a default GTK scale that's basically
+ * invisible on a dark theme. That was your empty space. */
+.widget-mpris scale {
+    margin: 6px 2px 2px 2px;
+}
+.widget-mpris scale trough {
+    background-color: @surface1;
+    border-radius: 999px;
+    min-height: 6px;
+}
+.widget-mpris scale trough highlight {
+    background-color: @accent;
+    border-radius: 999px;
+    min-height: 6px;
+}
+.widget-mpris scale slider {
+    background-color: @text;
+    border-radius: 999px;
+    min-width: 10px;
+    min-height: 10px;
+}
+.widget-mpris-position,
+.widget-mpris-length {
+    color: @subtext;
+    font-size: 10px;
+}
+
+.widget-mpris-title {
+    color: @text;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.widget-mpris-subtitle {
+    color: @subtext;
+    font-size: 12px;
+}
+
+/* Playback controls row: pill buttons instead of bare icons */
+.widget-mpris > box > button {
+    background-color: alpha(@surface1, 0.8);
+    color: @text;
+    border-radius: 999px;
+    min-width: 28px;
+    min-height: 28px;
+    padding: 4px;
+    margin: 0 2px;
+}
+
+.widget-mpris > box > button:hover {
+    background-color: @accent;
+    color: @base;
+}
+
+/* ---------- Do Not Disturb ---------- */
+
+.widget-dnd {
+    margin: 4px 0 8px 0;
+    color: @text;
+}
+
+.widget-dnd > switch {
+    background-color: @surface1;
+    border-radius: 999px;
+    min-width: 44px;
+    min-height: 24px;
+}
+
+.widget-dnd > switch:checked {
+    background-color: @accent;
+}
+
+.widget-dnd > switch slider {
+    background-color: @text;
+    border-radius: 999px;
+}
+
+/* ---------- Notifications title + Clear All ---------- */
+
+.widget-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: @text;
+    margin: 4px 0;
+}
+
+.widget-title > button {
+    background-color: transparent;
+    color: @accent;
+    border: 1px solid alpha(@accent, 0.6);
+    border-radius: 999px;
+    padding: 4px 12px;
+}
+
+.widget-title > button:hover {
+    background-color: alpha(@accent, 0.15);
+}
+
+/* ---------- Volume / Brightness sliders ---------- */
+
+.widget-volume,
+.widget-backlight {
+    background-color: alpha(@surface0, 0.9);
+    border-radius: 16px;
+    padding: 10px 14px;
+    margin: 6px 0;
+}
+
+.widget-volume > box > label,
+.widget-backlight > box > label {
+    color: @text;
+    font-size: 16px;
+}
+
+.widget-volume scale trough,
+.widget-backlight scale trough {
+    background-color: @surface1;
+    border-radius: 999px;
+    min-height: 8px;
+}
+
+.widget-volume scale trough highlight,
+.widget-backlight scale trough highlight {
+    background-color: @accent;
+    border-radius: 999px;
+    min-height: 8px;
+}
+
+.widget-volume scale slider,
+.widget-backlight scale slider {
+    background-color: @text;
+    border-radius: 999px;
+    min-width: 14px;
+    min-height: 14px;
+}
+
+/* ---------- Notification popups (top-right toasts) ---------- */
+
+.notification-background {
+    background: transparent;
+}
+
+/* Popup toasts only (top-right) — this used to also match
+ * .notification-default-action inside the control center, which
+ * stacked its own background/border on top of .notification's,
+ * giving you the "box inside a box" look. */
+.notification-background .notification-default-action,
+.notification-background .notification {
+    background-color: alpha(@base, 0.92);
+    border: 1px solid alpha(@overlay, 0.5);
+    border-radius: 16px;
+    valign: start;
+}
+
+.notification-background .notification.critical {
+    border-color: @red;
+}
+
+/* Control-center notification cards: strip the default-action's own
+ * border/background so only .notification's card shows, and make it
+ * fill .notification fully instead of hugging its own content. */
+.notification .notification-default-action {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    valign: fill;
+    halign: fill;
+}
+
+.notification-action {
+    background-color: alpha(@surface0, 0.9);
+    color: @text;
+    border-radius: 999px;
+}
+
+.notification-action:hover {
+    background-color: @accent;
+    color: @base;
+}

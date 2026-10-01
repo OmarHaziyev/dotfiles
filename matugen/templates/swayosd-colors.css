@@ -1,0 +1,12 @@
+/* Matugen template — outputs GTK @define-color vars from the wallpaper's
+   Material You palette. Adjust role names below if your other templates
+   (waybar, rofi, etc.) already use different naming — keep it consistent
+   with whatever you're using elsewhere. */
+
+@define-color primary {{colors.primary.default.hex}};
+@define-color on_primary {{colors.on_primary.default.hex}};
+@define-color primary_container {{colors.primary_container.default.hex}};
+@define-color on_primary_container {{colors.on_primary_container.default.hex}};
+@define-color surface {{colors.surface.default.hex}};
+@define-color on_surface {{colors.on_surface.default.hex}};
+@define-color outline {{colors.outline.default.hex}};

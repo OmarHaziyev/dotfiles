@@ -1,0 +1,124 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 8,
+    "margin": "8px 12px 0px 12px",
+
+    "modules-left": [
+        "custom/swaync",
+        "hyprland/workspaces",
+        "custom/media"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/airplane",
+        "network",
+        "custom/bluetooth",
+        "pulseaudio",
+        "hyprland/language",
+        "custom/battery",
+        "custom/power"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "all-outputs": false,
+        "sort-by-number": true,
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "custom/media": {
+        "exec": "~/.config/waybar/scripts/media.sh",
+        "return-type": "json",
+        "interval": 2,
+        "max-length": 42,
+        "on-click": "~/.config/waybar/scripts/media.sh toggle",
+        "on-click-right": "~/.config/waybar/scripts/media.sh next",
+        "on-scroll-up": "~/.config/waybar/scripts/media.sh next",
+        "on-scroll-down": "~/.config/waybar/scripts/media.sh prev",
+        "escape": true
+    },
+
+    "clock": {
+        "format": "{:%b %d %H:%M}",
+        "tooltip-format": "{:%H:%M %A, %d %B %Y}",
+        "interval": 1
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀 Wired",
+        "format-disconnected": "󰤭 Disconnected",
+        "tooltip-format": "{ifname}\n{essid}\nSignal: {signalStrength}%",
+        "on-click": "~/.config/waybar/scripts/wifi-menu.sh"
+    },
+
+    "custom/airplane": {
+    "exec": "~/.config/waybar/scripts/airplane-mode.sh",
+    "interval": 2,
+    "return-type": "json",
+    "on-click": "rfkill unblock wifi"
+},
+
+"custom/battery": {
+    "exec": "~/.config/waybar/scripts/battery.sh",
+    "return-type": "json",
+    "interval": 5
+},
+    "custom/bluetooth": {
+        "exec": "~/.config/waybar/scripts/bluetooth.sh",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "rofi-bluetooth"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+        "scroll-step": 5,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "tooltip-format": "{desc}\nVolume: {volume}%"
+    },
+
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip": false,
+        "on-click": "wlogout"
+    },
+        "custom/swaync": {
+        "tooltip": true,
+        "tooltip-format": "{}",
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='#BF616A'>󰂚</span>",
+            "none": "󰂚",
+            "dnd-notification": "<span foreground='#BF616A'>󰂛</span>",
+            "dnd-none": "󰂛",
+            "inhibited-notification": "<span foreground='#BF616A'>󰂚</span>",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "<span foreground='#BF616A'>󰂛</span>",
+            "dnd-inhibited-none": "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+"hyprland/language": {
+    "format": "{}",
+    "format-en": "🇺🇸 US",
+    "format-az": "🇦🇿 AZ",
+    "format-ru": "🇷🇺 RU",
+    "tooltip": false
+}}

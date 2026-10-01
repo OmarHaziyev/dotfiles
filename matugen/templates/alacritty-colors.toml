@@ -1,0 +1,23 @@
+[colors.primary]
+background = "#{{base16.base00.default.hex_stripped}}"
+foreground = "#ffffff"
+
+[colors.normal]
+black   = "#{{base16.base00.default.hex_stripped}}"
+red     = "#{{base16.base08.default.hex_stripped}}"
+green   = "#{{base16.base0b.default.hex_stripped}}"
+yellow  = "#{{base16.base0a.default.hex_stripped}}"
+blue    = "#{{base16.base0d.default.hex_stripped}}"
+magenta = "#{{base16.base0e.default.hex_stripped}}"
+cyan    = "#{{base16.base0c.default.hex_stripped}}"
+white   = "#ffffff"
+
+[colors.bright]
+black   = "#{{base16.base03.default.hex_stripped}}"
+red     = "#{{base16.base08.default.hex_stripped}}"
+green   = "#{{base16.base0b.default.hex_stripped}}"
+yellow  = "#{{base16.base0a.default.hex_stripped}}"
+blue    = "#{{base16.base0d.default.hex_stripped}}"
+magenta = "#{{base16.base0e.default.hex_stripped}}"
+cyan    = "#{{base16.base0c.default.hex_stripped}}"
+white   = "#ffffff"

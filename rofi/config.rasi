@@ -1,0 +1,14 @@
+configuration {
+    modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               "Apps";
+    drun-display-format:        "{icon} {name}";
+    disable-history:            false;
+    sidebar-mode:                false;
+}
+
+@theme "theme"
+
+
+
+

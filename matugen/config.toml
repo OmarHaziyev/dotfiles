@@ -1,0 +1,50 @@
+# ~/.config/matugen/config.toml
+#
+# matugen owns wallpaper-setting AND palette generation, so switching
+# wallpaper and retheming happen as a single `matugen image <path>` call.
+# See ~/.config/waybar/scripts/wallpaper-select.sh for the picker that
+# invokes this.
+
+[config.wallpaper]
+set = true
+command = "awww img --transition-type wipe --transition-fps 60 --transition-duration 1 {{ image }}"
+
+# Nord-derived status colors. matugen harmonizes these toward the
+# wallpaper's hue automatically, so they shift with the theme but stay
+# recognizable as green/yellow/orange/red.
+[config.custom_colors]
+green  = "#A3BE8C"
+yellow = "#EBCB8B"
+orange = "#D08770"
+red    = "#BF616A"
+
+[templates.theme]
+input_path = "~/.config/matugen/templates/colors.css"
+output_path = "~/.config/theme/colors.css"
+# theme/colors.css is symlinked into waybar/colors.css and wlogout/colors.css,
+# so writing it once covers both. Waybar needs a nudge to actually repaint;
+# rofi and wlogout re-read their CSS/rasi on next launch so they don't.
+post_hook = "pkill -SIGUSR2 waybar; swaync-client --reload-css"
+
+[templates.rofi]
+input_path = "~/.config/matugen/templates/colors.rasi"
+output_path = "~/.config/rofi/colors.rasi"
+
+[templates.alacritty]
+input_path = "~/.config/matugen/templates/alacritty-colors.toml"
+output_path = "~/.config/alacritty/colors.toml"
+
+[templates.discord]
+input_path = "~/.config/matugen/templates/discord.css"
+output_path = "~/.config/Vencord/settings/quickCss.css"
+
+[templates.kitty]
+input_path = "~/.config/matugen/templates/kitty-colors.conf"
+output_path = "~/.config/kitty/colors.conf"
+post_hook = "kill -SIGUSR1 $(pgrep -x kitty)"
+
+[templates.swayosd]
+input_path = '~/.config/matugen/templates/swayosd-colors.css'
+output_path = '~/.config/swayosd/colors.css'
+
+
